@@ -53,11 +53,15 @@ class Graph(object):
 
         if vertex1 in self.__graph_dict:
             if vertex2 not in self.__graph_dict[vertex1]:
+                self.add_vertex(vertex2)
                 self.__graph_dict[vertex1].append(vertex2)
+                self.__graph_dict[vertex2].append(vertex1)
 
         if vertex2 in self.__graph_dict:
             if vertex1 not in self.__graph_dict[vertex2]:
+                self.add_vertex(vertex1)
                 self.__graph_dict[vertex2].append(vertex1)
+                self.__graph_dict[vertex1].append(vertex2)
 
         else:
             self.__graph_dict[vertex1] = [vertex2]
