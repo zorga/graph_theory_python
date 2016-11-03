@@ -48,18 +48,29 @@ class Graph(object):
         assumes that edge is of type set, tuple or list;
         between two vertices can be multiple edges!
         '''
-        edge = set(edge)
+        #edge = set(edge)
         (vertex1, vertex2) = tuple(edge)
+
         if vertex1 in self.__graph_dict:
-            self.__graph_dict[vertex1].append(vertex2)
+            if vertex2 not in self.__graph_dict[vertex1]:
+                self.__graph_dict[vertex1].append(vertex2)
+
+        if vertex2 in self.__graph_dict:
+            if vertex1 not in self.__graph_dict[vertex2]:
+                self.__graph_dict[vertex2].append(vertex1)
+
         else:
             self.__graph_dict[vertex1] = [vertex2]
+            self.__graph_dict[vertex2] = [vertex1]
 
     
-    def find_path(self, start_vertex, end_vertex, path=[]):
+    def find_path(self, start_vertex, end_vertex, path=None):
         '''
         find a path from start_vertex to end_vertex in graph
         '''
+        if path == None:
+            path = []
+
         graph = self.__graph_dict
         path.append(start_vertex)
         
@@ -67,6 +78,9 @@ class Graph(object):
             return path
 
         if start_vertex not in graph:
+            return None
+
+        if end_vertex not in graph:
             return None
 
         for vertex in graph[start_vertex]:
@@ -113,8 +127,8 @@ class Graph(object):
         edges = []
         for vertex in self.__graph_dict:
             for neighbour in self.__graph_dict[vertex]:
-                if {neighbour, vertex} not in edges:
-                    edges.append({vertex, neighbour})
+                if (neighbour, vertex) not in edges:
+                    edges.append((vertex, neighbour))
         
         return edges
 
