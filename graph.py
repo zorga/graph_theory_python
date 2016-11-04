@@ -6,7 +6,7 @@ A python module to manipulate graphs
 
 class Graph(object):
     
-    def __init__(self, graph_dict=None):
+    def __init__(self, directed=False, graph_dict=None):
         '''
         initialize a graph object
         If no dicttionary or None is given,
@@ -15,7 +15,16 @@ class Graph(object):
         if graph_dict == None:
             graph_dict = {}
         
+        self.__directed = directed
         self.__graph_dict = graph_dict
+
+    
+    def directed(self):
+        '''
+        returns True if the graph is directed
+                False otherwise
+        '''
+        return self.__directed
 
 
     def vertices(self):
