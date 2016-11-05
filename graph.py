@@ -62,6 +62,23 @@ class Graph(object):
         if vertex not in self.__graph_dict:
             self.__graph_dict[vertex] = []
 
+
+    def remove_vertex(self, vertex):
+        '''
+        Remove the vertex 'vertex' from the graph if present
+        Do nothing otherwise
+        '''
+        if vertex in self.__graph_dict:
+            del self.__graph_dict[vertex]
+        
+        # Also remove 'vertex' from all the other vertices neighbors list !
+        for v in self.__graph_dict.keys():
+            if vertex in self.__graph_dict[v]:
+                # Remove ALL occurences of 'vertex' in neighbor list
+                # Because there can be multiple edges between two vertices
+                l = [x for x in self.__graph_dict[v] if x != vertex]
+                self.__graph_dict[v] = l
+
     
     def add_edge(self, edge):
         '''
