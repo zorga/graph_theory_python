@@ -6,6 +6,8 @@ A python module to manipulate graphs
 
 __author__ = "Nicolas Ooghe"
 
+from collections import deque
+
 class Graph(object):
     '''
     A class to represent the Graph data structure.
@@ -213,6 +215,27 @@ class Graph(object):
                 for p in extended_paths:
                     paths.append(p)
             return paths
+
+
+    def breadth_first_search(self, start_vertex):
+        '''
+        perform a BFS on the graph starting at vertex 'start_vertex'
+        returns all vertices reachable from 'start_vertex'
+        '''
+        queue = deque()
+        visited = set()
+        queue.append(start_vertex)
+
+        while queue:
+            current = queue.popleft()
+            if current not in visited:
+                visited.add(current)
+
+            for neighbor in self.__graph_dict[current]:
+                if neighbor not in visited:
+                    queue.append(neighbor)
+
+        return visited
 
 
     def __generate_edges(self):
