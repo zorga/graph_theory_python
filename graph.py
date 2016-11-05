@@ -127,6 +127,35 @@ class Graph(object):
 
         while (v1 in self.__graph_dict[v2]):
             self.__graph_dict[v2].remove(v1)
+
+
+    def is_adjacent(self, v1, v2):
+        '''
+        returns True if 'v1' and 'v2' are connected by an edge (minimum)
+                False otherwise
+        '''
+        res = False
+
+        if (v1 == v2):
+            res = True
+
+        else:
+            res = (v1 in self.__graph_dict[v2] and v2 in self.__graph_dict[v1])
+
+        return res
+
+
+    def degree(self, vertex):
+        '''
+        returns the degree of the vertex 'vertex'. So, the number of edges
+        that are connected to 'vertex', the loops count as two incidents edges
+        '''
+        deg = 0
+        
+        for v in self.__graph_dict[vertex]:
+            deg = deg + 1
+
+        return deg
         
     
     def find_path(self, start_vertex, end_vertex, path=None):
