@@ -70,6 +70,10 @@ class Graph(object):
         '''
         if vertex in self.__graph_dict:
             del self.__graph_dict[vertex]
+        else:
+            #TODO : handle this case with an exception
+            print("No such vertex in graph!")
+            return
         
         # Also remove 'vertex' from all the other vertices neighbors list !
         for v in self.__graph_dict.keys():
@@ -85,7 +89,7 @@ class Graph(object):
         assumes that edge is of type set, tuple or list;
         between two vertices can be multiple edges!
         '''
-        edge = set(edge)
+        #edge = set(edge)
         (vertex1, vertex2) = tuple(edge)
 
         # First add the corresponding vertex in the graph
@@ -105,7 +109,7 @@ class Graph(object):
         for example : removing edge ('a', 'b') between vertices 'a' and 'b'
         will only remove one such edge, but maybe there are multiple ones
         '''
-        edge = set(edge)
+        #edge = set(edge)
         (v1, v2) = tuple(edge)
         self.__graph_dict[v1].remove(v2)
         self.__graph_dict[v2].remove(v1)
@@ -115,7 +119,7 @@ class Graph(object):
         '''
         remove all instances of the edge 'edge' in the graph
         '''
-        edge = set(edge)
+        #edge = set(edge)
         (v1, v2) = tuple(edge)
         
         while (v2 in self.__graph_dict[v1]):
@@ -193,6 +197,10 @@ class Graph(object):
             for neighbour in self.__graph_dict[vertex]:
                 if (neighbour, vertex) not in edges:
                     edges.append((vertex, neighbour))
+                    # TODO: If there are more than one loops in the graph, it
+                    # appends only one of them (bug to fix)
+                    # Try to add the edge ('a', 'a') several times for example
+                    # and print the graph to see the bug happening
         
         return edges
 
