@@ -1,8 +1,11 @@
 from graph import *
 
 def main():
-    g = Graph()
-    g.add_edge(("a", "b"))
+    gDict = {'a' : ['b', 'c'],
+             'b' : ['a', 'd'],
+             'e' : []
+            }
+    g = Graph(gDict)
     
     print("The graph : ")
     print(g)

@@ -4,7 +4,13 @@
 A python module to manipulate graphs
 '''
 
+__author__ = "Nicolas Ooghe"
+
 class Graph(object):
+    '''
+    A class to represent the Graph data structure.
+    Undirected by default
+    '''
     
     def __init__(self, directed=False, graph_dict=None):
         '''
