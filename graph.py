@@ -97,6 +97,33 @@ class Graph(object):
         self.__graph_dict[vertex1].append(vertex2)
         self.__graph_dict[vertex2].append(vertex1)
 
+
+    def remove_edge(self, edge):
+        '''
+        remove the edge 'edge' from the graph
+        warning : remove only one instance of 'edge' in the graph
+        for example : removing edge ('a', 'b') between vertices 'a' and 'b'
+        will only remove one such edge, but maybe there are multiple ones
+        '''
+        edge = set(edge)
+        (v1, v2) = tuple(edge)
+        self.__graph_dict[v1].remove(v2)
+        self.__graph_dict[v2].remove(v1)
+
+
+    def remove_all_edge(self, edge):
+        '''
+        remove all instances of the edge 'edge' in the graph
+        '''
+        edge = set(edge)
+        (v1, v2) = tuple(edge)
+        
+        while (v2 in self.__graph_dict[v1]):
+            self.__graph_dict[v1].remove(v2)
+
+        while (v1 in self.__graph_dict[v2]):
+            self.__graph_dict[v2].remove(v1)
+        
     
     def find_path(self, start_vertex, end_vertex, path=None):
         '''
