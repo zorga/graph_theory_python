@@ -6,6 +6,7 @@ A python module to manipulate graphs
 
 __author__ = "Nicolas Ooghe"
 
+import sys
 from collections import deque
 
 class Graph(object):
@@ -236,7 +237,7 @@ class Graph(object):
                     queue.append(neighbor)
 
         return visited
-
+        
 
     def __generate_edges(self):
         '''
