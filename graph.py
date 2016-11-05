@@ -12,7 +12,7 @@ class Graph(object):
     Undirected by default
     '''
     
-    def __init__(self, directed=False, graph_dict=None):
+    def __init__(self, directed=None, graph_dict=None):
         '''
         initialize a graph object
         If no dicttionary or None is given,
@@ -20,6 +20,11 @@ class Graph(object):
         '''
         if graph_dict == None:
             graph_dict = {}
+        
+        if directed == None:
+            directed = False
+        # Why setting the default values as 'None' :
+        # http://effbot.org/zone/default-values.htm
         
         self.__directed = directed
         self.__graph_dict = graph_dict
@@ -66,11 +71,14 @@ class Graph(object):
         edge = set(edge)
         (vertex1, vertex2) = tuple(edge)
 
-        if vertex1 in self.__graph_dict:
-            self.__graph_dict[vertex1].append(vertex2)
+        # First add the corresponding vertex in the graph
+        # If they are already in the graph, nothing happen
+        self.add_vertex(vertex1)
+        self.add_vertex(vertex2)
 
-        else:
-            self.__graph_dict[vertex1] = [vertex2]
+        # Obviously, the two new vertices are neighbors
+        self.__graph_dict[vertex1].append(vertex2)
+        self.__graph_dict[vertex2].append(vertex1)
 
     
     def find_path(self, start_vertex, end_vertex, path=None):
@@ -102,10 +110,13 @@ class Graph(object):
         return None
 
 
-    def find_all_paths(self, start_vertex, end_vertex, path=[]):
+    def find_all_paths(self, start_vertex, end_vertex, path=None):
         '''
         find all paths from start_vertex to end_vertex in graph
         '''
+        if path == None:
+            path = []
+
         graph = self.__graph_dict
         path = path + [start_vertex]
         
@@ -151,44 +162,3 @@ class Graph(object):
             res += str(edge) + " "
         
         return res
- 
-
-if __name__ == "__main__":
-        
-    g = { "a" : ["d"],
-          "b" : ["c"],
-          "c" : ["b", "c", "d", "e"],
-          "d" : ["a", "c"],
-          "e" : ["c"],
-          "f" : []
-        }
-
-    graph = Graph(g)
-
-    print("Vertices of graph:")
-    print(graph.vertices())
-
-    print("Edges of graph:")
-    print(graph.edges())
-    
-    print("Add vertex:")
-    graph.add_vertex("z")
-    
-    print("Vertices of graph:")
-    print(graph.vertices())
- 
-    print("Add an edge:")
-    graph.add_edge({"a","z"})
-    
-    print("Vertices of graph:")
-    print(graph.vertices())
-
-    print("Edges of graph:")
-    print(graph.edges())
-
-    print('Adding an edge {"x","y"} with new vertices:')
-    graph.add_edge({"x","y"})
-    print("Vertices of graph:")
-    print(graph.vertices())
-    print("Edges of graph:")
-    print(graph.edges())

@@ -1,11 +1,16 @@
+#!/usr/bin/python
+
 from graph import *
 
 def main():
     gDict = {'a' : ['b', 'c'],
              'b' : ['a', 'd'],
+             'c' : ['a'],
+             'd' : ['b'],
              'e' : []
             }
-    g = Graph(gDict)
+
+    g = Graph(False, gDict)
     
     print("The graph : ")
     print(g)
