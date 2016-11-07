@@ -103,6 +103,8 @@ class Graph(object):
         '''
         assumes that edge is of type set, tuple or list;
         between two vertices can be multiple edges!
+        'cost' is the weight of the edge, if None is given
+        it will be set to "1" via the 'add_neighbor' method
         '''
         (label1, label2) = tuple(edge)
 

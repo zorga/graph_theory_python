@@ -28,7 +28,6 @@ class Vertex(object):
         self.__distance = distance
         self.__previous = None 
         self.__parent = parent
-        # Initialy empty neighbors list
         # For each key in the neighbor dict, the value is the weight
         # of the edge linking the present vertex to this neighbor
         self.__neighbors = {}
