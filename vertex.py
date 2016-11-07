@@ -69,7 +69,7 @@ class Vertex(object):
         if weight is None:
             weight = 1
         if vertex not in self.__neighbors.keys():
-            self.neighbors[vertex] = weight
+            self.__neighbors[vertex] = weight
 
     def remove_neighbor(self, vertex):
         '''
@@ -87,9 +87,9 @@ class Vertex(object):
 
     def neighbors(self):
         '''
-        return the list of neighbors of the current vertex
+        return the dict of neighbors of the current vertex
         '''
-        return list(self.__neighbors.keys())
+        return self.__neighbors
 
     def __str__(self):
         s = "Vertex : "

@@ -97,8 +97,7 @@ class Graph(object):
             if label in curr_vertex.neighbors():
                 # Remove ALL occurences of 'vertex' in neighbor list
                 # Because there can be multiple edges between two vertices
-                neigh_list = [x for x in curr_vertex.neighbors() if x != label]
-                self.__graph_dict[ver].set_neighbors(neigh_list)
+                curr_vertex.remove_neighbor(label)
 
     def add_edge(self, edge):
         '''
