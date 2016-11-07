@@ -99,7 +99,7 @@ class Graph(object):
                 # Because there can be multiple edges between two vertices
                 curr_vertex.remove_neighbor(label)
 
-    def add_edge(self, edge):
+    def add_edge(self, edge, cost=None):
         '''
         assumes that edge is of type set, tuple or list;
         between two vertices can be multiple edges!
@@ -112,8 +112,8 @@ class Graph(object):
         self.add_vertex(label2)
 
         # Obviously, the two new vertices are neighbors
-        self.__graph_dict[label1].add_neighbor(label2)
-        self.__graph_dict[label2].add_neighbor(label1)
+        self.__graph_dict[label1].add_neighbor(label2, cost)
+        self.__graph_dict[label2].add_neighbor(label1, cost)
 
     def remove_edge(self, edge):
         '''
@@ -234,18 +234,11 @@ class Graph(object):
             for neighbor in self.__graph_dict[current].neighbors():
                 if neighbor not in visited:
                     queue.append(neighbor)
-                if self.__graph_dict[neighbor].distance() == 'INFINITY':
+                if self.__graph_dict[neighbor].distance() == sys.maxsize:
                     self.__graph_dict[neighbor].set_distance(self.__graph_dict[current].distance() + 1)
                     self.__graph_dict[neighbor].set_parent(current)
 
         return visited
-
-    def dijkstra(self, start_vertex):
-        '''
-        An implementation of the Dijkstra's algorithm to find
-        the shortest path between two vertices
-        '''
-        pass
 
     def __generate_edges(self):
         '''

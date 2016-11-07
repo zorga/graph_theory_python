@@ -1,5 +1,6 @@
 #!/usr/bin/python
 
+import sys
 from graph import *
 
 def main():
@@ -29,7 +30,7 @@ def main():
         res = ""
         for v in g.vertices():
             if v != str(s):
-                if g.get_vertex(str(v)).distance() == 'INFINITY':
+                if g.get_vertex(str(v)).distance() == sys.maxsize:
                     res += "-1 "
                 else:
                     val = g.get_vertex(str(v)).distance() * 6

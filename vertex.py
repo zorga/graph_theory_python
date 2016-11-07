@@ -7,6 +7,8 @@ A python module defining the 'vertex' class to be used in the
 
 __author__ = 'Nicolas Ooghe'
 
+import sys
+
 class Vertex(object):
     '''
     Definition of the 'vertex' class
@@ -16,14 +18,15 @@ class Vertex(object):
         '''
         initialize a vertex object
         if no distance or None is given,
-        the distance is set to 'INFINITY'
+        the distance is set to sys.maxsize 
         parent should always be None at initialization
         ''' 
         if distance is None:
-            distance = 'INFINITY'
+            distance = sys.maxsize
 
         self.__label = label
         self.__distance = distance
+        self.__previous = None 
         self.__parent = parent
         # Initialy empty neighbors list
         # For each key in the neighbor dict, the value is the weight
@@ -53,6 +56,18 @@ class Vertex(object):
         update the parent of the vertex
         '''
         self.__parent = par
+
+    def previous(self):
+        '''
+        returns the 'previous' attr of the instance of Vertex
+        '''
+        return self.__previous
+
+    def set_previous(self, prev):
+        '''
+        updates the 'previous' attribute of the instance of vertex
+        '''
+        self.__previous = prev
 
     def label(self):
         '''
