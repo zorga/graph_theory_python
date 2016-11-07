@@ -369,8 +369,14 @@ def main():
         assert 1 <= s <= n
         g.breadth_first_search(str(s))
         res = ""
+        nodes = []
+
         for v in g.vertices():
-            if v != str(s):
+            nodes.append(int(v)) 
+        nodes.sort() 
+
+        for v in nodes:
+            if str(v) != str(s):
                 if g.get_vertex(str(v)).distance() == 'INFINITY':
                     res += "-1 "
                 else:
