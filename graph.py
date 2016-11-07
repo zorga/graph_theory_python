@@ -32,6 +32,7 @@ class Graph(object):
 
         self.__directed = directed
         self.__graph_dict = graph_dict
+        self.__num_vertices = 0
 
     def directed(self):
         '''
@@ -62,6 +63,7 @@ class Graph(object):
         ver = Vertex(label)
         if label not in self.__graph_dict:
             self.__graph_dict[label] = ver
+            self.__num_vertices = self.__num_vertices + 1
 
     def get_vertex(self, label):
         '''
@@ -81,6 +83,7 @@ class Graph(object):
         '''
         if label in self.__graph_dict:
             del self.__graph_dict[label]
+            self.__num_vertices = self.__num_vertices - 1
 
         # Also remove 'vertex' from all the other vertices neighbors list !
         for ver in self.__graph_dict.keys():
