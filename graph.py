@@ -225,7 +225,7 @@ class Graph(object):
             for neighbour in self.__graph_dict[vertex]:
                 if (neighbour, vertex) not in edges:
                     edges.append((vertex, neighbour))
-                    # TODO: If there are more than one loops in the graph, it
+                    # TODO: (issue #1) If there are more than one loops in the graph, it
                     # appends only one of them (bug to fix)
                     # Try to add the edge ('a', 'a') several times for example
                     # and print the graph to see the bug happening
