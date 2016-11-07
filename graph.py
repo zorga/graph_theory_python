@@ -4,8 +4,8 @@
 A python module to manipulate graphs
 '''
 
-import vertex
 from collections import deque
+from vertex import *
 
 __author__ = "Nicolas Ooghe"
 
@@ -62,6 +62,17 @@ class Graph(object):
         ver = Vertex(label)
         if label not in self.__graph_dict:
             self.__graph_dict[label] = ver
+
+    def get_vertex(self, label):
+        '''
+        returns the Vertex object with label 'label' if it is
+        in the graph
+        '''
+        if label in self.__graph_dict.keys():
+            return self.__graph_dict[label]
+        else:
+            print("No such Vertex !")
+            return
 
     def remove_vertex(self, label):
         '''
