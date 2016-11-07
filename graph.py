@@ -215,6 +215,7 @@ class Graph(object):
         '''
         queue = deque()
         visited = set()
+        self.__graph_dict[start_vertex].set_distance(0)
         queue.append(start_vertex)
 
         while queue:
@@ -222,9 +223,12 @@ class Graph(object):
             if current not in visited:
                 visited.add(current)
 
-            for neighbor in self.__graph_dict[current]:
+            for neighbor in self.__graph_dict[current].neighbors():
                 if neighbor not in visited:
                     queue.append(neighbor)
+                if self.__graph_dict[neighbor].distance() == 'INFINITY':
+                    self.__graph_dict[neighbor].set_distance(self.__graph_dict[current].distance() + 1)
+                    self.__graph_dict[neighbor].set_parent(current)
 
         return visited
 
