@@ -240,6 +240,13 @@ class Graph(object):
 
         return visited
 
+    def dijkstra(self, start_vertex):
+        '''
+        An implementation of the Dijkstra's algorithm to find
+        the shortest path between two vertices
+        '''
+        pass
+
     def __generate_edges(self):
         '''
         A static method generating the edges of the graph 'graph'.
