@@ -47,6 +47,12 @@ class Graph(object):
         '''
         return list(self.__graph_dict.keys())
 
+    def num_vertices(self):
+        '''
+        returns the number of vertices in the graph
+        '''
+        return self.__num_vertices
+
     def edges(self):
         '''
         returns the edges of a graph
@@ -88,10 +94,10 @@ class Graph(object):
         # Also remove 'vertex' from all the other vertices neighbors list !
         for ver in self.__graph_dict.keys():
             curr_vertex = self.__graph_dict[ver]
-            if vertex in curr_vertex.neighbors():
+            if label in curr_vertex.neighbors():
                 # Remove ALL occurences of 'vertex' in neighbor list
                 # Because there can be multiple edges between two vertices
-                neigh_list = [x for x in curr_vertex.neighbors() if x != vertex]
+                neigh_list = [x for x in curr_vertex.neighbors() if x != label]
                 self.__graph_dict[ver].set_neighbors(neigh_list)
 
     def add_edge(self, edge):
