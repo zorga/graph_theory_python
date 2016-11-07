@@ -1,4 +1,5 @@
 # Graph Theory Python
 
-A repo containing some fun stuff about graph implementation and manipulation
-with Python
+My implementation of the Graph data structure. There are two classes
+in this project : the Graph class and the Vertex Class to represent
+graphs and vertices that compose them, respectively.
