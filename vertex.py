@@ -26,7 +26,9 @@ class Vertex(object):
         self.__distance = distance
         self.__parent = parent
         # Initialy empty neighbors list
-        self.__neighbors = []
+        # For each key in the neighbor dict, the value is the weight
+        # of the edge linking the present vertex to this neighbor
+        self.__neighbors = {}
 
     def distance(self):
         '''
@@ -58,19 +60,24 @@ class Vertex(object):
         '''
         return self.__label
 
-    def add_neighbor(self, vertex):
+    def add_neighbor(self, vertex, weight=None):
         '''
-        add the vertex object 'vertex' in the neighbor list
+        add the vertex object 'vertex' in the neighbor dict
         of the current vertex
+        weight is the cost of the edge linked to this neighbor
         '''
-        self.__neighbors.append(vertex)
+        if weight is None:
+            weight = 1
+        if vertex not in self.__neighbors.keys():
+            self.neighbors[vertex] = weight
 
     def remove_neighbor(self, vertex):
         '''
         remove the vertex object 'vertex' from the neighbor list
         of the current vertex
         '''
-        self.__neighbors.remove(vertex)
+        if vertex in self.__neighbors.keys():
+            del self.__neighbors[vertex]
 
     def set_neighbors(self, neigh):
         '''
@@ -82,7 +89,7 @@ class Vertex(object):
         '''
         return the list of neighbors of the current vertex
         '''
-        return self.__neighbors
+        return list(self.__neighbors.keys())
 
     def __str__(self):
         s = "Vertex : "
