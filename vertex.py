@@ -7,7 +7,7 @@ A python module defining the 'vertex' class to be used in the
 
 __author__ = 'Nicolas Ooghe'
 
-class vertex(object):
+class Vertex(object):
     '''
     Definition of the 'vertex' class
     '''
@@ -22,9 +22,11 @@ class vertex(object):
         if distance is None:
             distance = 'INFINITY'
 
-        self.__distance = distance
         self.__label = label
+        self.__distance = distance
         self.__parent = parent
+        # Initialy empty neighbors list
+        self.__neighbors = []
 
     def distance(self):
         '''
@@ -55,6 +57,32 @@ class vertex(object):
         return the label of the vertex
         '''
         return self.__label
+
+    def add_neighbor(self, vertex):
+        '''
+        add the vertex object 'vertex' in the neighbor list
+        of the current vertex
+        '''
+        self.__neighbors.append(vertex)
+
+    def remove_neighbor(self, vertex):
+        '''
+        remove the vertex object 'vertex' from the neighbor list
+        of the current vertex
+        '''
+        self.__neighbors.remove(vertex)
+
+    def set_neighbors(self, neigh):
+        '''
+        update the neighbors attribute of the vertex object
+        '''
+        self.__neighbors = neigh
+
+    def neighbors(self):
+        '''
+        return the list of neighbors of the current vertex
+        '''
+        return self.__neighbors
 
     def __str__(self):
         s = "Vertex : "
