@@ -1,0 +1,33 @@
+#!/usr/bin/python
+
+'''
+A python module defining the 'vertex' class to be used in the
+'graph' class
+'''
+
+__author__ = 'Nicolas Ooghe'
+
+class vertex(object):
+    '''
+    Definition of the 'vertex' class
+    '''
+
+    def __init__(self, label, distance=None, parent=None):
+        '''
+        initialize a vertex object
+        if no distance or None is given,
+        the distance is set to 'INFINITY'
+        parent should always be None at initialization
+        ''' 
+        if distance is None:
+            distance = 'INFINITY'
+
+        self.__distance = distance
+        self.__label = label
+        self.__parent = parent
+
+    def __str__(self):
+        s = "Vertex : "
+        s += "\nLabel : " + str(self.__label)
+        s += "\nDistance : " + str(self.__distance)
+        s += "\nParent : " + str(self.__parent)
