@@ -26,6 +26,36 @@ class vertex(object):
         self.__label = label
         self.__parent = parent
 
+    def distance(self):
+        '''
+        return the distance of the vertex from root
+        '''
+        return self.__distance
+
+    def set_distance(self, dist):
+        '''
+        update the distance attribute of the vertex
+        '''
+        self.__distance = dist
+
+    def parent(self):
+        '''
+        return the parent of the vertex
+        '''
+        return self.__parent
+
+    def set_parent(self, par):
+        '''
+        update the parent of the vertex
+        '''
+        self.__parent = par
+
+    def label(self):
+        '''
+        return the label of the vertex
+        '''
+        return self.__label
+
     def __str__(self):
         s = "Vertex : "
         s += "\nLabel : " + str(self.__label)
