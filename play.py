@@ -114,6 +114,9 @@ def main():
     print str(g.get_vertex('G').neighbors())
     print "Neighbors of H : "
     print str(g.get_vertex('H').neighbors())
+    
+    print "\nAdjacency matrix of the graph : \n"
+    g.adjacency_matrix()
 
 if __name__ == '__main__':
     main()

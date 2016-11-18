@@ -1,6 +1,7 @@
 Let's play with graphs !
 ====================
 Current graph state : 
+Number of vertices : 0
 Vertices: 
 Edges: 
 ====================
@@ -8,6 +9,7 @@ Edges:
 add edge A -- B
 ====================
 Current graph state : 
+Number of vertices : 2
 Vertices: A B 
 Edges: [A --(1)-- B] 
 ====================
@@ -15,6 +17,7 @@ Edges: [A --(1)-- B]
 add edge A -- B
 ====================
 Current graph state : 
+Number of vertices : 2
 Vertices: A B 
 Edges: [A --(2)-- B] 
 ====================
@@ -22,6 +25,7 @@ Edges: [A --(2)-- B]
 add edge D -- C
 ====================
 Current graph state : 
+Number of vertices : 4
 Vertices: A C B D 
 Edges: [A --(2)-- B] [C --(1)-- D] 
 ====================
@@ -29,6 +33,7 @@ Edges: [A --(2)-- B] [C --(1)-- D]
 remove vertex C
 ====================
 Current graph state : 
+Number of vertices : 3
 Vertices: A B D 
 Edges: [A --(2)-- B] 
 ====================
@@ -39,6 +44,7 @@ Are A and D adjacent ? : False
 add edge X -- Y
 ====================
 Current graph state : 
+Number of vertices : 5
 Vertices: A B D Y X 
 Edges: [A --(2)-- B] [Y --(1)-- X] 
 ====================
@@ -46,6 +52,7 @@ Edges: [A --(2)-- B] [Y --(1)-- X]
 add edge X -- Z
 ====================
 Current graph state : 
+Number of vertices : 6
 Vertices: A B D Y X Z 
 Edges: [A --(2)-- B] [Y --(1)-- X] [X --(1)-- Z] 
 ====================
@@ -53,6 +60,7 @@ Edges: [A --(2)-- B] [Y --(1)-- X] [X --(1)-- Z]
 add edge X -- V
 ====================
 Current graph state : 
+Number of vertices : 7
 Vertices: A B D V Y X Z 
 Edges: [A --(2)-- B] [V --(1)-- X] [Y --(1)-- X] [X --(1)-- Z] 
 ====================
@@ -67,6 +75,7 @@ Neighbors of X :
 {'Y': 1, 'Z': 1}
 ====================
 Current graph state : 
+Number of vertices : 6
 Vertices: A B D Y X Z 
 Edges: [A --(2)-- B] [Y --(1)-- X] [X --(1)-- Z] 
 ====================
@@ -74,6 +83,7 @@ Edges: [A --(2)-- B] [Y --(1)-- X] [X --(1)-- Z]
 add three edges X -- Z
 ====================
 Current graph state : 
+Number of vertices : 6
 Vertices: A B D Y X Z 
 Edges: [A --(2)-- B] [Y --(1)-- X] [X --(4)-- Z] 
 ====================
@@ -81,6 +91,7 @@ Edges: [A --(2)-- B] [Y --(1)-- X] [X --(4)-- Z]
 remove an X -- Z edge
 ====================
 Current graph state : 
+Number of vertices : 6
 Vertices: A B D Y X Z 
 Edges: [A --(2)-- B] [Y --(1)-- X] [X --(3)-- Z] 
 ====================
@@ -88,6 +99,7 @@ Edges: [A --(2)-- B] [Y --(1)-- X] [X --(3)-- Z]
 remove an X -- Z edge
 ====================
 Current graph state : 
+Number of vertices : 6
 Vertices: A B D Y X Z 
 Edges: [A --(2)-- B] [Y --(1)-- X] [X --(2)-- Z] 
 ====================
@@ -95,6 +107,7 @@ Edges: [A --(2)-- B] [Y --(1)-- X] [X --(2)-- Z]
 remove an X -- Z edge
 ====================
 Current graph state : 
+Number of vertices : 6
 Vertices: A B D Y X Z 
 Edges: [A --(2)-- B] [Y --(1)-- X] [X --(1)-- Z] 
 ====================
@@ -102,6 +115,7 @@ Edges: [A --(2)-- B] [Y --(1)-- X] [X --(1)-- Z]
 remove an X -- Z edge
 ====================
 Current graph state : 
+Number of vertices : 6
 Vertices: A B D Y X Z 
 Edges: [A --(2)-- B] [Y --(1)-- X] 
 ====================
@@ -113,6 +127,7 @@ Vertex Z has no neighbor named X !
 
 ====================
 Current graph state : 
+Number of vertices : 6
 Vertices: A B D Y X Z 
 Edges: [A --(2)-- B] [Y --(1)-- X] 
 ====================
@@ -121,6 +136,7 @@ Edges: [A --(2)-- B] [Y --(1)-- X]
 add edge G -- H
 ====================
 Current graph state : 
+Number of vertices : 8
 Vertices: A B D G H Y X Z 
 Edges: [A --(2)-- B] [G --(1)-- H] [Y --(1)-- X] 
 ====================
@@ -133,6 +149,7 @@ Neighbors of H :
 add edge G -- H
 ====================
 Current graph state : 
+Number of vertices : 8
 Vertices: A B D G H Y X Z 
 Edges: [A --(2)-- B] [G --(2)-- H] [Y --(1)-- X] 
 ====================
@@ -145,6 +162,7 @@ Neighbors of H :
 remove edge G -- H
 ====================
 Current graph state : 
+Number of vertices : 8
 Vertices: A B D G H Y X Z 
 Edges: [A --(2)-- B] [G --(1)-- H] [Y --(1)-- X] 
 ====================
@@ -157,6 +175,7 @@ Neighbors of H :
 remove edge G -- H
 ====================
 Current graph state : 
+Number of vertices : 8
 Vertices: A B D G H Y X Z 
 Edges: [A --(2)-- B] [Y --(1)-- X] 
 ====================
@@ -173,6 +192,7 @@ Vertex H has no neighbor named G !
 
 ====================
 Current graph state : 
+Number of vertices : 8
 Vertices: A B D G H Y X Z 
 Edges: [A --(2)-- B] [Y --(1)-- X] 
 ====================
@@ -181,3 +201,15 @@ Neighbors of G :
 {}
 Neighbors of H : 
 {}
+
+Adjacency matrix of the graph : 
+
+A
+B
+D
+G
+H
+Y
+X
+Z
+8

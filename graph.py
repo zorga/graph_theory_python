@@ -234,6 +234,17 @@ class Graph(object):
 
         return visited
 
+    def adjacency_matrix(self):
+        '''
+        Builds and returns the adjacency matrix representing the
+        graph 'self'
+        '''
+        n = self.num_vertices()
+        adj_matrix = []
+        for v in self.vertices():
+            print v
+        print n
+
     def __generate_edges(self):
         '''
         A static method generating the edges of the graph 'graph'.
@@ -253,8 +264,15 @@ class Graph(object):
         return edges
 
     def __str__(self):
+        '''
+        Two print the data caracterizing the graph in a beautiful
+        way. The edges are printed in the following form :
+        "V1--(n)--V2" where 'n' is the cost of the edge between
+        vertices 'V1' and 'V2'
+        '''
         res = "=" * 20
         res += "\nCurrent graph state : "
+        res += "\nNumber of vertices : " + str(self.num_vertices())
         res += "\nVertices: "
         for k in self.__graph_dict:
             res += str(k) + " "
