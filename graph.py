@@ -79,7 +79,7 @@ class Graph(object):
         if label in self.__graph_dict.keys():
             return self.__graph_dict[label]
         else:
-            print("No such Vertex !")
+            print "No such Vertex in the graph !"
             return
 
     def remove_vertex(self, label):
@@ -91,13 +91,17 @@ class Graph(object):
             del self.__graph_dict[label]
             self.__num_vertices = self.__num_vertices - 1
 
-        # Also remove 'vertex' from all the other vertices neighbors list !
-        for ver in self.__graph_dict.keys():
-            curr_vertex = self.__graph_dict[ver]
-            if label in curr_vertex.neighbors():
-                # Remove ALL occurences of 'vertex' in neighbor list
-                # Because there can be multiple edges between two vertices
-                curr_vertex.remove_neighbor(label)
+            # Also remove 'vertex' from all the other vertices neighbors list !
+            for ver in self.__graph_dict.keys():
+                curr_vertex = self.__graph_dict[ver]
+                if label in curr_vertex.neighbors():
+                    # Remove ALL occurences of 'vertex' in neighbor list
+                    # Because there can be multiple edges between two vertices
+                    curr_vertex.remove_neighbor(label)
+
+        else:
+            print "No such Vertex in the graph !"
+            return
 
     def add_edge(self, edge, cost=None):
         '''
@@ -261,11 +265,19 @@ class Graph(object):
         return edges
 
     def __str__(self):
-        res = "vertices: "
+        res = "=" * 20
+        res += "\nCurrent graph state : "
+        res += "\nVertices: "
         for k in self.__graph_dict:
             res += str(k) + " "
-        res += "\nedges: "
+        res += "\nEdges: "
         for edge in self.__generate_edges():
-            res += str(edge) + " "
+            v1 = edge[0]
+            v2 = edge[-1]
+            edge_str = "[" + str(v1) + " -- " + str(v2) + "]"
+            res += edge_str + " "
+        res += "\n"
+        res += "=" * 20
+        res += "\n"
 
         return res
