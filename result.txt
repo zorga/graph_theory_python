@@ -202,14 +202,14 @@ Neighbors of G :
 Neighbors of H : 
 {}
 
-Adjacency matrix of the graph : 
+Adjacency Matrix of the graph : 
 
-A
-B
-D
-G
-H
-Y
-X
-Z
-8
+| 0  0  0  0  0  0  0  0 |
+| 0  0  0  0  0  0  0  0 |
+| 0  0  0  0  0  0  0  0 |
+| 0  0  0  0  0  0  0  0 |
+| 0  0  0  0  0  0  0  0 |
+| 0  0  0  0  0  0  0  0 |
+| 0  0  0  0  0  0  0  0 |
+| 0  0  0  0  0  0  0  0 |
+

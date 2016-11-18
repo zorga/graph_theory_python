@@ -33,6 +33,10 @@ class Graph(object):
         self.__directed = directed
         self.__graph_dict = graph_dict
         self.__num_vertices = 0
+        
+        # Initially set to None but can be built using the
+        # 'build_adjacency_matrix()' method
+        self.__adj_matrix = None
 
     def directed(self):
         '''
@@ -234,18 +238,44 @@ class Graph(object):
 
         return visited
 
-    def adjacency_matrix(self):
+    def build_adjacency_matrix(self):
         '''
         Builds and returns the adjacency matrix representing the
         graph 'self'
         '''
         n = self.num_vertices()
         adj_matrix = []
-        for v in self.vertices():
-            print v
-        print n
+
+        for i in range(n):
+            new = [0 for j in range(n)]
+            adj_matrix.append(new)
+
+        self.__adj_matrix = adj_matrix
+
+    def print_adjacency_matrix(self):
+        '''
+        Builds (if not done yet) the adjacency matrix representing
+        the graph and print it in a easily readable way
+        '''
+        res = ""
+        res += "\nAdjacency Matrix of the graph : \n\n"
+
+        if not self.__adj_matrix:
+            self.build_adjacency_matrix()
+
+        n = len(self.__adj_matrix)
+
+        for row in self.__adj_matrix:
+            res += '|'
+            for v in row:
+                res += ' ' + str(v) + ' '
+            res += '|'
+            res += '\n'
+
+        print res
 
     def __generate_edges(self):
+
         '''
         A static method generating the edges of the graph 'graph'.
         Edges are represented as sets with one (a loop back to the
