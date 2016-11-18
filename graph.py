@@ -244,10 +244,17 @@ class Graph(object):
         graph 'self'
         '''
         n = self.num_vertices()
+        ver_list = self.vertices()
         adj_matrix = []
 
         for i in range(n):
-            new = [0 for j in range(n)]
+            ver = self.get_vertex(ver_list[i])
+            new = []
+            for v in ver_list:
+                if v in ver.neighbors():
+                    new.append(ver.get_neighbor_cost(v))
+                else:
+                    new.append(0)
             adj_matrix.append(new)
 
         self.__adj_matrix = adj_matrix
