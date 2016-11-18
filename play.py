@@ -114,6 +114,11 @@ def main():
     print str(g.get_vertex('G').neighbors())
     print "Neighbors of H : "
     print str(g.get_vertex('H').neighbors())
+
+    print "add edge A -- B, Y -- U, and G -- O"
+    g.add_edge(('A', 'B'))
+    g.add_edge(('Y', 'U'))
+    g.add_edge(('G', 'O'))
     
     g.print_adjacency_matrix()
 
