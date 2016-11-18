@@ -87,11 +87,17 @@ class Vertex(object):
 
     def remove_neighbor(self, vertex):
         '''
-        remove the vertex object 'vertex' from the neighbor list
-        of the current vertex
+        remove the vertex object with label 'vertex' from the 
+        neighbr list of the current vertex
         '''
         if vertex in self.__neighbors.keys():
             del self.__neighbors[vertex]
+        else:
+            msg = ""
+            msg += "Vertex " + str(self.label()) + " has no "
+            msg += "neighbor named " + str(vertex) + " !\n"
+            print msg
+            return
 
     def set_neighbors(self, neigh):
         '''

@@ -70,6 +70,9 @@ class Graph(object):
         if label not in self.__graph_dict:
             self.__graph_dict[label] = ver
             self.__num_vertices = self.__num_vertices + 1
+        else:
+            print "Vertex " + str(label) + " already in graph !\n"
+            return
 
     def get_vertex(self, label):
         '''
@@ -131,18 +134,6 @@ class Graph(object):
         (label1, label2) = tuple(edge)
         self.__graph_dict[label1].remove_neighbor(label2)
         self.__graph_dict[label2].remove_neighbor(label1)
-
-    def remove_all_edge(self, edge):
-        '''
-        remove all instances of the edge 'edge' in the graph
-        '''
-        (label1, label2) = tuple(edge)
-
-        while label2 in self.__graph_dict[label1].neighbors():
-            self.__graph_dict[label1].remove_neighbor(label2)
-
-        while label1 in self.__graph_dict[label2].neighbors():
-            self.__graph_dict[label2].remove_neighbor(label1)
 
     def is_adjacent(self, label1, label2):
         '''

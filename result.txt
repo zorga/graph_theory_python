@@ -1,0 +1,124 @@
+Let's play with graphs !
+====================
+Current graph state : 
+Vertices: 
+Edges: 
+====================
+
+add edge A -- B
+====================
+Current graph state : 
+Vertices: A B 
+Edges: [A -- B] 
+====================
+
+add edge D -- C
+====================
+Current graph state : 
+Vertices: A C B D 
+Edges: [A -- B] [C -- D] 
+====================
+
+remove vertex C
+====================
+Current graph state : 
+Vertices: A B D 
+Edges: [A -- B] 
+====================
+
+Are A and B adjacent ? : True
+Are A and D adjacent ? : False
+
+add edge X -- Y
+====================
+Current graph state : 
+Vertices: A B D Y X 
+Edges: [A -- B] [Y -- X] 
+====================
+
+add edge X -- Z
+====================
+Current graph state : 
+Vertices: A B D Y X Z 
+Edges: [A -- B] [Y -- X] [X -- Z] 
+====================
+
+add edge X -- V
+====================
+Current graph state : 
+Vertices: A B D V Y X Z 
+Edges: [A -- B] [V -- X] [Y -- X] [X -- Z] 
+====================
+
+Neighbors of X :
+{'Y': 1, 'Z': 1, 'V': 1}
+
+
+remove vertex V
+
+Neighbors of X : 
+{'Y': 1, 'Z': 1}
+====================
+Current graph state : 
+Vertices: A B D Y X Z 
+Edges: [A -- B] [Y -- X] [X -- Z] 
+====================
+
+add three edges X -- Z
+====================
+Current graph state : 
+Vertices: A B D Y X Z 
+Edges: [A -- B] [Y -- X] [X -- Z] 
+====================
+
+remove an X -- Z edge
+====================
+Current graph state : 
+Vertices: A B D Y X Z 
+Edges: [A -- B] [Y -- X] 
+====================
+
+remove an X -- Z edge
+Vertex X has no neighbor named Z !
+
+Vertex Z has no neighbor named X !
+
+====================
+Current graph state : 
+Vertices: A B D Y X Z 
+Edges: [A -- B] [Y -- X] 
+====================
+
+remove an X -- Z edge
+Vertex X has no neighbor named Z !
+
+Vertex Z has no neighbor named X !
+
+====================
+Current graph state : 
+Vertices: A B D Y X Z 
+Edges: [A -- B] [Y -- X] 
+====================
+
+remove an X -- Z edge
+Vertex X has no neighbor named Z !
+
+Vertex Z has no neighbor named X !
+
+====================
+Current graph state : 
+Vertices: A B D Y X Z 
+Edges: [A -- B] [Y -- X] 
+====================
+
+remove an X -- Z edge
+Vertex X has no neighbor named Z !
+
+Vertex Z has no neighbor named X !
+
+====================
+Current graph state : 
+Vertices: A B D Y X Z 
+Edges: [A -- B] [Y -- X] 
+====================
+
