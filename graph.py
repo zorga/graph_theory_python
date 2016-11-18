@@ -258,19 +258,28 @@ class Graph(object):
         the graph and print it in a easily readable way
         '''
         res = ""
+        vertex_labels = " " * 4
         res += "\nAdjacency Matrix of the graph : \n\n"
+        ver_list = self.vertices()
+
+        for v in ver_list:
+            vertex_labels += str(v) + "  "
+    
+        res += "\n" + vertex_labels + "\n"
 
         if not self.__adj_matrix:
             self.build_adjacency_matrix()
 
         n = len(self.__adj_matrix)
 
+        i = 0
         for row in self.__adj_matrix:
-            res += '|'
+            res += str(ver_list[i]) + ' |'
             for v in row:
                 res += ' ' + str(v) + ' '
             res += '|'
             res += '\n'
+            i = i + 1
 
         print res
 
