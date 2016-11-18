@@ -12,6 +12,13 @@ Vertices: A B
 Edges: [A -- B] 
 ====================
 
+add edge A -- B
+====================
+Current graph state : 
+Vertices: A B 
+Edges: [A -- B] 
+====================
+
 add edge D -- C
 ====================
 Current graph state : 
@@ -75,14 +82,24 @@ remove an X -- Z edge
 ====================
 Current graph state : 
 Vertices: A B D Y X Z 
-Edges: [A -- B] [Y -- X] 
+Edges: [A -- B] [Y -- X] [X -- Z] 
 ====================
 
 remove an X -- Z edge
-Vertex X has no neighbor named Z !
+====================
+Current graph state : 
+Vertices: A B D Y X Z 
+Edges: [A -- B] [Y -- X] [X -- Z] 
+====================
 
-Vertex Z has no neighbor named X !
+remove an X -- Z edge
+====================
+Current graph state : 
+Vertices: A B D Y X Z 
+Edges: [A -- B] [Y -- X] [X -- Z] 
+====================
 
+remove an X -- Z edge
 ====================
 Current graph state : 
 Vertices: A B D Y X Z 
@@ -100,25 +117,62 @@ Vertices: A B D Y X Z
 Edges: [A -- B] [Y -- X] 
 ====================
 
-remove an X -- Z edge
-Vertex X has no neighbor named Z !
-
-Vertex Z has no neighbor named X !
-
+add edge G -- H
 ====================
 Current graph state : 
-Vertices: A B D Y X Z 
+Vertices: A B D G H Y X Z 
+Edges: [A -- B] [G -- H] [Y -- X] 
+====================
+
+Neighbors of G : 
+{'H': 1}
+Neighbors of H : 
+{'G': 1}
+add edge G -- H
+====================
+Current graph state : 
+Vertices: A B D G H Y X Z 
+Edges: [A -- B] [G -- H] [Y -- X] 
+====================
+
+Neighbors of G : 
+{'H': 2}
+Neighbors of H : 
+{'G': 2}
+remove edge G -- H
+====================
+Current graph state : 
+Vertices: A B D G H Y X Z 
+Edges: [A -- B] [G -- H] [Y -- X] 
+====================
+
+Neighbors of G : 
+{'H': 1}
+Neighbors of H : 
+{'G': 1}
+remove edge G -- H
+====================
+Current graph state : 
+Vertices: A B D G H Y X Z 
 Edges: [A -- B] [Y -- X] 
 ====================
 
-remove an X -- Z edge
-Vertex X has no neighbor named Z !
+Neighbors of G : 
+{}
+Neighbors of H : 
+{}
+remove edge G -- H
+Vertex G has no neighbor named H !
 
-Vertex Z has no neighbor named X !
+Vertex H has no neighbor named G !
 
 ====================
 Current graph state : 
-Vertices: A B D Y X Z 
+Vertices: A B D G H Y X Z 
 Edges: [A -- B] [Y -- X] 
 ====================
 
+Neighbors of G : 
+{}
+Neighbors of H : 
+{}

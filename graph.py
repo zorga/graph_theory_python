@@ -70,9 +70,6 @@ class Graph(object):
         if label not in self.__graph_dict:
             self.__graph_dict[label] = ver
             self.__num_vertices = self.__num_vertices + 1
-        else:
-            print "Vertex " + str(label) + " already in graph !\n"
-            return
 
     def get_vertex(self, label):
         '''

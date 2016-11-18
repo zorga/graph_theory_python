@@ -82,16 +82,29 @@ class Vertex(object):
         '''
         if weight is None:
             weight = 1
+
         if vertex not in self.__neighbors.keys():
             self.__neighbors[vertex] = weight
+        else:
+            # If the neighbor already exists, we simply inscrease
+            # the weight of the edge connecting to it by 1
+            curr_weigh = self.__neighbors[vertex]
+            self.__neighbors[vertex] = curr_weigh + 1
 
     def remove_neighbor(self, vertex):
         '''
         remove the vertex object with label 'vertex' from the 
-        neighbr list of the current vertex
+        neighbors dict of the current vertex
+        If the weight associated with this neighbor is greater than
+        1, we simply decreases this weight by one
         '''
         if vertex in self.__neighbors.keys():
-            del self.__neighbors[vertex]
+            if self.__neighbors[vertex] > 1:
+                curr_weigh = self.__neighbors[vertex]
+                self.__neighbors[vertex] = curr_weigh - 1
+            else:
+                del self.__neighbors[vertex]
+
         else:
             msg = ""
             msg += "Vertex " + str(self.label()) + " has no "
