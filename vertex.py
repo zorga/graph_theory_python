@@ -112,6 +112,23 @@ class Vertex(object):
             print msg
             return
 
+    def get_neighbor_cost(self, vertex):
+        '''
+        returns the cost associated with the edge going from
+        vertex 'self' to vertex 'vertex' if 'vertex' is a neighbor
+        of self
+        '''
+        if vertex in self.__neighbors.keys():
+            neigh_cost = self.__neighbors[vertex]
+            return neigh_cost
+
+        else:
+            msg = ""
+            msg += "Vertex " + str(self.label()) + " has no "
+            msg += "neighbor named " + str(vertex) + " !\n"
+            print msg
+            return
+
     def set_neighbors(self, neigh):
         '''
         update the neighbors attribute of the vertex object

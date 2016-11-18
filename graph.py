@@ -262,7 +262,8 @@ class Graph(object):
         for edge in self.__generate_edges():
             v1 = edge[0]
             v2 = edge[-1]
-            edge_str = "[" + str(v1) + " -- " + str(v2) + "]"
+            edge_cost = self.get_vertex(v1).get_neighbor_cost(v2)
+            edge_str = "[" + str(v1) + " --(" + str(edge_cost) + ")-- "+ str(v2) + "]"
             res += edge_str + " "
         res += "\n"
         res += "=" * 20

@@ -9,28 +9,28 @@ add edge A -- B
 ====================
 Current graph state : 
 Vertices: A B 
-Edges: [A -- B] 
+Edges: [A --(1)-- B] 
 ====================
 
 add edge A -- B
 ====================
 Current graph state : 
 Vertices: A B 
-Edges: [A -- B] 
+Edges: [A --(2)-- B] 
 ====================
 
 add edge D -- C
 ====================
 Current graph state : 
 Vertices: A C B D 
-Edges: [A -- B] [C -- D] 
+Edges: [A --(2)-- B] [C --(1)-- D] 
 ====================
 
 remove vertex C
 ====================
 Current graph state : 
 Vertices: A B D 
-Edges: [A -- B] 
+Edges: [A --(2)-- B] 
 ====================
 
 Are A and B adjacent ? : True
@@ -40,21 +40,21 @@ add edge X -- Y
 ====================
 Current graph state : 
 Vertices: A B D Y X 
-Edges: [A -- B] [Y -- X] 
+Edges: [A --(2)-- B] [Y --(1)-- X] 
 ====================
 
 add edge X -- Z
 ====================
 Current graph state : 
 Vertices: A B D Y X Z 
-Edges: [A -- B] [Y -- X] [X -- Z] 
+Edges: [A --(2)-- B] [Y --(1)-- X] [X --(1)-- Z] 
 ====================
 
 add edge X -- V
 ====================
 Current graph state : 
 Vertices: A B D V Y X Z 
-Edges: [A -- B] [V -- X] [Y -- X] [X -- Z] 
+Edges: [A --(2)-- B] [V --(1)-- X] [Y --(1)-- X] [X --(1)-- Z] 
 ====================
 
 Neighbors of X :
@@ -68,42 +68,42 @@ Neighbors of X :
 ====================
 Current graph state : 
 Vertices: A B D Y X Z 
-Edges: [A -- B] [Y -- X] [X -- Z] 
+Edges: [A --(2)-- B] [Y --(1)-- X] [X --(1)-- Z] 
 ====================
 
 add three edges X -- Z
 ====================
 Current graph state : 
 Vertices: A B D Y X Z 
-Edges: [A -- B] [Y -- X] [X -- Z] 
+Edges: [A --(2)-- B] [Y --(1)-- X] [X --(4)-- Z] 
 ====================
 
 remove an X -- Z edge
 ====================
 Current graph state : 
 Vertices: A B D Y X Z 
-Edges: [A -- B] [Y -- X] [X -- Z] 
+Edges: [A --(2)-- B] [Y --(1)-- X] [X --(3)-- Z] 
 ====================
 
 remove an X -- Z edge
 ====================
 Current graph state : 
 Vertices: A B D Y X Z 
-Edges: [A -- B] [Y -- X] [X -- Z] 
+Edges: [A --(2)-- B] [Y --(1)-- X] [X --(2)-- Z] 
 ====================
 
 remove an X -- Z edge
 ====================
 Current graph state : 
 Vertices: A B D Y X Z 
-Edges: [A -- B] [Y -- X] [X -- Z] 
+Edges: [A --(2)-- B] [Y --(1)-- X] [X --(1)-- Z] 
 ====================
 
 remove an X -- Z edge
 ====================
 Current graph state : 
 Vertices: A B D Y X Z 
-Edges: [A -- B] [Y -- X] 
+Edges: [A --(2)-- B] [Y --(1)-- X] 
 ====================
 
 remove an X -- Z edge
@@ -114,53 +114,58 @@ Vertex Z has no neighbor named X !
 ====================
 Current graph state : 
 Vertices: A B D Y X Z 
-Edges: [A -- B] [Y -- X] 
+Edges: [A --(2)-- B] [Y --(1)-- X] 
 ====================
+
 
 add edge G -- H
 ====================
 Current graph state : 
 Vertices: A B D G H Y X Z 
-Edges: [A -- B] [G -- H] [Y -- X] 
+Edges: [A --(2)-- B] [G --(1)-- H] [Y --(1)-- X] 
 ====================
 
 Neighbors of G : 
 {'H': 1}
 Neighbors of H : 
 {'G': 1}
+
 add edge G -- H
 ====================
 Current graph state : 
 Vertices: A B D G H Y X Z 
-Edges: [A -- B] [G -- H] [Y -- X] 
+Edges: [A --(2)-- B] [G --(2)-- H] [Y --(1)-- X] 
 ====================
 
 Neighbors of G : 
 {'H': 2}
 Neighbors of H : 
 {'G': 2}
+
 remove edge G -- H
 ====================
 Current graph state : 
 Vertices: A B D G H Y X Z 
-Edges: [A -- B] [G -- H] [Y -- X] 
+Edges: [A --(2)-- B] [G --(1)-- H] [Y --(1)-- X] 
 ====================
 
 Neighbors of G : 
 {'H': 1}
 Neighbors of H : 
 {'G': 1}
+
 remove edge G -- H
 ====================
 Current graph state : 
 Vertices: A B D G H Y X Z 
-Edges: [A -- B] [Y -- X] 
+Edges: [A --(2)-- B] [Y --(1)-- X] 
 ====================
 
 Neighbors of G : 
 {}
 Neighbors of H : 
 {}
+
 remove edge G -- H
 Vertex G has no neighbor named H !
 
@@ -169,7 +174,7 @@ Vertex H has no neighbor named G !
 ====================
 Current graph state : 
 Vertices: A B D G H Y X Z 
-Edges: [A -- B] [Y -- X] 
+Edges: [A --(2)-- B] [Y --(1)-- X] 
 ====================
 
 Neighbors of G : 

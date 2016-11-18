@@ -75,7 +75,7 @@ def main():
     g.remove_edge(('X', 'Z'))
     print g
     
-    print "add edge G -- H"
+    print "\nadd edge G -- H"
     g.add_edge(('G', 'H'))
     print g
     print "Neighbors of G : "
@@ -83,7 +83,7 @@ def main():
     print "Neighbors of H : "
     print str(g.get_vertex('H').neighbors())
 
-    print "add edge G -- H"
+    print "\nadd edge G -- H"
     g.add_edge(('G', 'H'))
     print g
     print "Neighbors of G : "
@@ -91,7 +91,7 @@ def main():
     print "Neighbors of H : "
     print str(g.get_vertex('H').neighbors())
     
-    print "remove edge G -- H"
+    print "\nremove edge G -- H"
     g.remove_edge(('G', 'H'))
     print g
     print "Neighbors of G : "
@@ -99,7 +99,7 @@ def main():
     print "Neighbors of H : "
     print str(g.get_vertex('H').neighbors())
 
-    print "remove edge G -- H"
+    print "\nremove edge G -- H"
     g.remove_edge(('G', 'H'))
     print g
     print "Neighbors of G : "
@@ -107,7 +107,7 @@ def main():
     print "Neighbors of H : "
 
     print str(g.get_vertex('H').neighbors())
-    print "remove edge G -- H"
+    print "\nremove edge G -- H"
     g.remove_edge(('G', 'H'))
     print g
     print "Neighbors of G : "
