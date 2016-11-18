@@ -238,6 +238,18 @@ class Graph(object):
 
         return visited
 
+    def dijkstra(self, src):
+        '''
+        implementation of the dijkstra's algorithm to find
+        shortest paths between 'src' node and all other nodes
+        of the graph
+
+        /!\ The labels of the vertices of the graph should be
+        integers !
+        '''
+        pass
+        #TODO
+
     def build_adjacency_matrix(self):
         '''
         Builds and returns the adjacency matrix representing the
